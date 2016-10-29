@@ -33,7 +33,7 @@
          <h2>To Buy:</h2>
          <ul>
            <li ng-repeat="buyItem in buyController.getBuyList()">
-             Buy {{buyItem.name}} {{buyItem.quantity}}
+             Buy {{buyItem.quantity}} {{buyItem.name}} 
              <button ng-click="buyController.buyItem($index,buyItem);" class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Bought</button>
            </li>
          </ul>
