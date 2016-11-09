@@ -28,6 +28,9 @@
       if (narrowItDownCtrl.foundItems.length>=indexOfItemToRemove) {
         narrowItDownCtrl.foundItems.splice(indexOfItemToRemove,1);
       }
+      if (narrowItDownCtrl.foundItems.length==0){
+        narrowItDownCtrl.displayError = true;
+      }
     };
 
     narrowItDownCtrl.getMatchedMenuItems = function(searchTerm){
