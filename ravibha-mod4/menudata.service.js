@@ -2,7 +2,7 @@
   'use strict'
 
   angular.module('data')
-  .service('MenuDataService ', MenuDataService);
+  .service('MenuDataService', MenuDataService);
 
   MenuDataService.$inject = ['$http'];
   function MenuDataService($http) {
@@ -20,7 +20,7 @@
     menuDataService.getItemsForCategory = function(categoryShortName){
       var response = $http({
         method: "GET",
-        url: restApiUrl + 'menu-items.json?category=' + categoryShortName
+        url: restApiUrl + 'menu_items.json?category=' + categoryShortName
       });
       return response;
     };
