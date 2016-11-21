@@ -4,12 +4,22 @@
   angular.module('public')
   .controller('UserInfoController', UserInfoController);
 
-  UserInfoController.$inject = ['CommonDataService'];
-  function UserInfoController(CommonDataService) {
+  UserInfoController.$inject = ['CommonDataService', 'ApiPath'];
+  function UserInfoController(CommonDataService, ApiPath) {
     var $ctrl = this;
-    $ctrl.userInfo = {};
+    $ctrl.showSignupButton = false;
+    $ctrl.basePath = ApiPath;    
     $ctrl.userInfo = CommonDataService.userInfo;
-    console.log($ctrl.userInfo);
+
+    if (!$ctrl.userInfo) {
+      // User info has not been saved yet. So show the signup button
+      $ctrl.showSignupButton = true;
+    }
+    else {
+
+      console.log($ctrl.userInfo);
+    }
+
 
 
   }

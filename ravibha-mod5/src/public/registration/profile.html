@@ -1,6 +1,28 @@
 <div>
-  {{userInfoCtrl}}
 
-  <a ui-sref="public.signup">
-    <span class="glyphicon glyphicon-certificate"></span><br class="hidden-xs"> Sign Up</a>
+  <div ng-show="{{userInfoCtrl.showSignupButton}}">
+    Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>
+    <br />           
+  </div>
+
+  <div ng-hide="{{userInfoCtrl.showSignupButton}}">
+    <p>My information</p>
+    <br />
+    <p>
+      First Name: {{userInfoCtrl.userInfo.firstName}}
+    </p>
+    <p>
+      Last Name: {{userInfoCtrl.userInfo.lastName}}
+    </p>
+    <p>
+      Email: {{userInfoCtrl.userInfo.email}}
+    </p>
+    <p>
+      Phone: {{userInfoCtrl.userInfo.phone}}
+    </p>
+    <p>
+      Favorite dish: {{userInfoCtrl.userInfo.favoriteDish.name}}
+      <img class="img-responsive" width="250" height="150" ng-src="{{userInfoCtrl.basePath}}/images/{{userInfoCtrl.userInfo.favoriteDish.short_name}}.jpg" alt="{{userInfoCtrl.userInfo.favoriteDish.name}}">
+    </p>
+  </div>
 </div>

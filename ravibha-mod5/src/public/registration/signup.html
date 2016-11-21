@@ -34,12 +34,12 @@
           required>
 
   <span ng-if="regForm.favdish.$error.required && regForm.favdish.$touched">
-      Please enter your favorite dish
+      Please enter your favorite dish (ShortName)
   </span>
   <br /><br />
 
   <button style="color:black" ng-disabled="regForm.$invalid" ng-click="registrationCtrl.submit()">Submit</button>
 
-  <span style="color:"red">{{registrationCtrl.warningMessage}}</span>
-  <!--<div style="margin-top: 10px;">Form valid? {{ regForm.$valid }}</div>-->
+  <span style="color:red">{{registrationCtrl.warningMessage}}</span>
+  <div ng-if="registrationCtrl.registrationCompleted">Your information has been saved</div>
 </form>

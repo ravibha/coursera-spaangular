@@ -8,22 +8,23 @@
   function RegistrationController(MenuService, CommonDataService) {
     var $ctrl = this;
     $ctrl.warningMessage = "";
+    $ctrl.registrationCompleted = false;
 
     $ctrl.submit = function () {
       $ctrl.warningMessage = "";
-      $ctrl.completed = true;
+
       $ctrl.userInfo = {};
       CommonDataService.userInfo = $ctrl.user;
       var shortnameOfFavDish = $ctrl.user.favdish;
-      // Make a call to the service to update sign in info
+
       var promise = MenuService.getMenuItemDetailByShortname(shortnameOfFavDish);
 
       promise.then(function(data){
           var data = data;
           // Save the information about the dish somewhere in the service
-          CommonDataService.isUserSignedUp=true;
+          CommonDataService.isUserSignedUp = true;
           CommonDataService.userInfo.favoriteDish = data;
-          $ctrl.userInfo = data;
+          $ctrl.registrationCompleted = true;
       }, function(error){
           $ctrl.warningMessage = "No such menu number exists";
       });
